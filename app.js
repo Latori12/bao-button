@@ -808,7 +808,7 @@ async function init() {
         if (state.isLocalMode) {
             // 本地模式，直接使用本地路径
             console.log('使用本地文件模式');
-            AUIDO_URL = 'public/voices/';
+            AUIDO_URL = '/public/voices/';
             startAudioLoading();
         } else if (state.isSingleCdnMode) {
             // 只有一个CDN，直接使用
