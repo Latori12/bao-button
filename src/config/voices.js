@@ -354,37 +354,37 @@ export const voices = [
     {
         messages: { zh: "答辩"},
         path: "shit01.mp3",
-        tag: "SNP"
+        tag: "snp"
     },
 
     {
         messages: { zh: "矢"},
         path: "shit02.mp3",
-        tag: "SNP"
+        tag: "snp"
     },
 
     {
         messages: { zh: "P"},
         path: "fart.mp3",
-        tag: "SNP"
+        tag: "snp"
     },
 
     {
         messages: { zh: "撤硕答辩"},
         path: "toiletandshit.mp3",
-        tag: "SNP"
+        tag: "snp"
     },
     
     {
         messages: { zh: "杂鱼答辩"},
         path: "shitwords.mp3",
-        tag: "SNP"
+        tag: "snp"
     },
 
     {
         messages: { zh: "吔矢啦雷w"},
         path: "eatshit01.mp3",
-        tag: "SNP"
+        tag: "snp"
     }
 
     // 更多音频配置...
