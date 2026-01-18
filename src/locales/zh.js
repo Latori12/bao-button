@@ -31,21 +31,6 @@ export const zhLocale = {
      */
     tags: {
         // 音频分类标签翻译
-        sounds: "不明生物",          // 对应 tag: "sounds"
-        //laughter: "核能傻笑",        // 对应 tag: "laughter"
-        threatening: "河豚狂怒",     // 对应 tag: "threatening"
-        reactions: "哼唧怪",         // 对应 tag: "reactions"
-        murmur: "祖传哼哼唧",        // 对应 tag: "murmur"
-        requests: "缺德弹幕",        // 对应 tag: "requests"
-        alerts: "豚力警报",          // 对应 tag: "alerts"
-        calling: "祖宗召唤术",        // 对应 tag: "calling"
-        self_intro: "埋の自我介绍",  // 对应 tag: "self_intro"
-        actions: "迷惑行为",         // 对应 tag: "actions"
-        
-        // 示例：新增分类的翻译
-        //greetings: "问候语",          // 对应 tag: "greetings"
-        emotions: "情绪表达",         // 对应 tag: "emotions"
-        battle: "战斗语音",          // 对应 tag: "battle"
 
         //新添加标签
         greetings: "👋　Domo, 王宝煲DESU", //也就是各种问候
@@ -58,9 +43,9 @@ export const zhLocale = {
         dyinglylaugh: "😆　擦盘子",        //断气式笑声
         soundeffect: "🎧　煲音效",         //不知道在讲什么
         northeastwang: "👨‍🦱　东百王姐",     //东北口音
-        snp: "snp",                   //snp主播
+        snp: "💩　snp",                   //snp主播
         violence: "💪　暴力魔人",          //暴力发言
-        cough: "😷　咳嗽",                 //咳嗽
+        cough: "😷　咳嗽"                 //咳嗽
         // 注意：键名必须与 voices.js 中的 tag 完全一致
         // 包括大小写（建议统一使用小写）
     }
