@@ -247,7 +247,7 @@ git push origin main
 
 - [CaoMeiYouRen/shirakami-haruka-button](https://github.com/CaoMeiYouRen/shirakami-haruka-button) - 源项目灵感来源
 - [yandujun363/audio-button-template](https://github.com/yandujun363/audio-button-template) - 源项目
-- bilibili-pseudoAD (https://space.bilibili.com/12146170) -ui修改与调试
+- bilibili-pseudoAD (https://space.bilibili.com/12146170) -ui修改与调试、域名贡献(wangbaobao.moe)
 - 所有贡献者和用户
 - 开源社区
 
