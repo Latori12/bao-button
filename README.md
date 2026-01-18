@@ -32,6 +32,8 @@ bao-button/
 
 ## 🚀 快速开始
 
+如果你想制作音频按钮，请访问源项目[yandujun363/audio-button-template](https://github.com/yandujun363/audio-button-template)
+
 ### 1. 基础部署
 
 ```bash
