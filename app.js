@@ -1,7 +1,8 @@
 // ES模块版本
 import { zhLocale } from './src/locales/zh.js';
 import { voices } from './src/config/voices.js';
-import { CDN_CONFIGS } from './src/config/cdns.js'; // 新增导入
+import { CDN_CONFIGS } from './src/config/cdns.js';
+import { otherbutton } from './src/config/otherbutton.js';
 
 const CONCURRENCY_MIX = 5
 let AUIDO_URL = ""
@@ -448,6 +449,7 @@ function renderVoiceButtons() {
         container.appendChild(categoryElement);
     });
     renderSidebarNav(tags);
+    renderOtherButton(container);
 }
 
 // 按标签分组
@@ -518,6 +520,17 @@ function renderSidebarNav(tags) {
 
         nav.appendChild(item);
     });
+
+    const otherItem = document.createElement('div');
+    otherItem.className = 'sidebar-item';
+    otherItem.dataset.tag = 'otherbutton';
+    otherItem.textContent = '🔗 其他按钮';
+
+    otherItem.addEventListener('click', () => {
+        scrollToSection('otherbutton');
+    });
+
+    nav.appendChild(otherItem);
 }
 
 function scrollToSection(tag) {
@@ -583,6 +596,45 @@ function bindScrollSpy() {
         });
     });
 }
+
+function renderOtherButton(container) {
+    const section = document.createElement('div');
+    section.className = 'voice-category';
+    section.id = makeSectionId('otherbutton');
+    section.dataset.tag = 'otherbutton';
+
+    section.innerHTML = `
+      <h2>🔗 其他按钮</h2>
+      <div class="voice-buttons other-buttons"></div>
+    `;
+
+    const btnBox = section.querySelector('.voice-buttons');
+
+    otherbutton.forEach(item => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'haruka-button';
+
+        const btn = document.createElement('button');
+        btn.textContent = item.title;
+
+        //为按钮设置专属颜色
+        btn.style.setProperty('--other-main', item.color || 'var(--primary-color)');
+        btn.style.setProperty(
+            '--other-light',
+            item.light || 'var(--primary-light)'
+        );
+
+        btn.addEventListener('click', () => {
+            window.open(item.url, '_blank');
+        });
+
+        wrapper.appendChild(btn);
+        btnBox.appendChild(wrapper);
+    });
+
+    container.appendChild(section);
+}
+
 
 // 获取本地化的标签名
 function getLocalizedTag(tag) {
@@ -808,7 +860,7 @@ async function init() {
         if (state.isLocalMode) {
             // 本地模式，直接使用本地路径
             console.log('使用本地文件模式');
-            AUIDO_URL = '/public/voices/';
+            AUIDO_URL = './public/voices/';
             startAudioLoading();
         } else if (state.isSingleCdnMode) {
             // 只有一个CDN，直接使用

@@ -483,6 +483,29 @@ body {
     box-shadow: var(--shadow-inset);
 }
 
+/* ===== 其他按钮配色 ===== */
+.other-buttons .haruka-button button {
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.85),
+            color-mix(in srgb, var(--other-main, var(--primary-active)) 40%, white));
+
+    color: var(--other-main);
+
+    border: 1px solid color-mix(in srgb,
+            var(--primary-color) 40%,
+            transparent);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.other-buttons .haruka-button button:hover {
+    box-shadow: var(--shadow-float);
+}
+
+.other-buttons .haruka-button button:active {
+    box-shadow: var(--shadow-inset);
+}
+
 .process-mask {
     position: absolute;
     inset: 0;
