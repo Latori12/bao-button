@@ -553,6 +553,31 @@ function scrollToSection(tag) {
     });
 }
 
+function keepSidebarItemInView(item) {
+    const nav = document.getElementById('sidebarNav');
+    if (!nav || !item) return;
+
+    const navRect = nav.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+
+    const offset = 12; // 上下留白
+
+    // item 在 nav 可视区上方
+    if (itemRect.top < navRect.top + offset) {
+        nav.scrollBy({
+            top: itemRect.top - navRect.top - offset,
+            behavior: 'smooth'
+        });
+    }
+    // item 在 nav 可视区下方
+    else if (itemRect.bottom > navRect.bottom - offset) {
+        nav.scrollBy({
+            top: itemRect.bottom - navRect.bottom + offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
 function bindScrollSpy() {
     const scroller = document.getElementById('contentScroll');
     if (!scroller) return;
@@ -577,7 +602,7 @@ function bindScrollSpy() {
 
         for (let i = 0; i < sections.length; i++) {
             const section = sections[i];
-            const offsetTop = section.offsetTop - topbarH - 28;
+            const offsetTop = section.offsetTop - topbarH - 30;
 
             if (scrollTop >= offsetTop) {
                 currentTag = section.dataset.tag;
@@ -589,10 +614,9 @@ function bindScrollSpy() {
         if (!currentTag) return;
 
         sidebarItems.forEach(item => {
-            item.classList.toggle(
-                'active',
-                item.dataset.tag === currentTag
-            );
+            const isActive = item.dataset.tag === currentTag;
+            item.classList.toggle('active', isActive);
+            if (isActive) keepSidebarItemInView(item);
         });
     });
 }

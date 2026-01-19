@@ -97,7 +97,7 @@ body {
 .app-shell {
     height: 100%;
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 300px 1fr;
     background: transparent;
     transition: grid-template-columns var(--transition-normal);
     min-height: 0;
@@ -131,6 +131,7 @@ body {
 .topbar-title h1 {
     margin: 0;
     color: #7da3c9;
+    font-size: 38px;
     font-weight: 600;
 }
 
@@ -145,7 +146,7 @@ body {
     top: 0;
     height: 100%;
 
-    padding: 16px 14px;
+    padding: 16px 18px;
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -160,6 +161,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 /* 收起/展开按钮 */
@@ -173,8 +177,8 @@ body {
 
     width: 100%;
     box-sizing: border-box;
-    height: 38px;
-    padding: 0 13px;
+    height: 50px;
+    padding: 0 22px;
     border-radius: 999px;
 
     background: rgba(255, 255, 255, 0.95);
@@ -206,18 +210,18 @@ body {
 }
 
 #mainContent.sidebar-collapsed .app-shell {
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 100px 1fr;
 }
 
-/* 折叠时：sidebar 内边距更小 */
+/* 折叠sidebar */
 #mainContent.sidebar-collapsed .sidebar {
-    padding: 16px 14px;
+    padding: 16px 18px;
 }
 
-/* 折叠最终态：项居中，左右更紧 */
+/* 折叠最终态 */
 #mainContent.sidebar-collapsed .sidebar-item {
     justify-content: flex-start;
-    padding: 0 3px;
+    padding: 0 8px;
     overflow: hidden;
     text-overflow: clip;
     white-space: nowrap;
@@ -243,20 +247,22 @@ body {
 
     box-shadow: inset 0 1px 0 var(--sidebar-inset);
 
-    overflow: hidden;
-    padding: 8px;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 /* 单个分类项 */
 .sidebar-item {
-    height: 40px;
-    /* 统一高度：高亮块不会变 */
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    padding: 0 3px;
-    border-radius: 10px;
+    padding: 0 8px;
+    border-radius: 18px;
     position: relative;
 
     white-space: nowrap;
@@ -264,8 +270,8 @@ body {
     text-overflow: ellipsis;
 
     cursor: pointer;
-    font-size: 14px;
-    /* 字号固定：收起/展开不变 */
+    font-size: 17px;
+    font-weight: 550;
     line-height: 1;
 
     color: var(--text-secondary);
@@ -306,7 +312,7 @@ body {
 
 .sidebar-logo {
     margin-top: auto;
-    padding: 10px 6px 4px;
+    padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -314,7 +320,7 @@ body {
 
 /* 展开态 */
 .sidebar-logo img {
-    width: 200px;
+    width: 250px;
     height: auto;
     display: block;
 
@@ -364,6 +370,7 @@ body {
     border-radius: var(--button-radius);
 
     box-shadow: var(--shadow-soft);
+    font-size: 16px;
     font-weight: 600;
 
     transition:
@@ -386,7 +393,7 @@ body {
     background: linear-gradient(180deg,
             rgba(255, 255, 255, 0.75),
             rgba(244, 169, 182, 0.28));
-    color: var(--danger-hover);
+    color: var(--danger-color);
 }
 
 #stopAll:hover {
@@ -447,7 +454,8 @@ body {
     border-radius: var(--voice-button-radius);
 
     color: var(--primary-active);
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 580;
 
     white-space: nowrap;
     overflow: hidden;
