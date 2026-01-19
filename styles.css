@@ -219,7 +219,7 @@ body {
 /* 折叠最终态：项居中，左右更紧 */
 #mainContent.sidebar-collapsed .sidebar-item{
     justify-content: flex-start;   
-    padding: 0 ３px;               
+    padding: 0 3px;               
     overflow: hidden;
     text-overflow: clip;           
     white-space: nowrap;
