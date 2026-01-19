@@ -532,7 +532,7 @@ function scrollToSection(tag) {
     const topbar = document.querySelector('.topbar');
     const topbarH = topbar ? topbar.offsetHeight : 0;
 
-    const targetTop = section.offsetTop - topbarH - 12;
+    const targetTop = section.offsetTop - topbarH - 28;
 
     scroller.scrollTo({
         top: Math.max(0, targetTop),
@@ -564,7 +564,7 @@ function bindScrollSpy() {
 
         for (let i = 0; i < sections.length; i++) {
             const section = sections[i];
-            const offsetTop = section.offsetTop - topbarH - 16;
+            const offsetTop = section.offsetTop - topbarH - 28;
 
             if (scrollTop >= offsetTop) {
                 currentTag = section.dataset.tag;
