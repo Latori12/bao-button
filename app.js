@@ -524,7 +524,7 @@ function renderSidebarNav(tags) {
     const otherItem = document.createElement('div');
     otherItem.className = 'sidebar-item';
     otherItem.dataset.tag = 'otherbutton';
-    otherItem.textContent = '🔗 其他按钮';
+    otherItem.textContent = '🔗　其他按钮';
 
     otherItem.addEventListener('click', () => {
         scrollToSection('otherbutton');
@@ -604,7 +604,7 @@ function renderOtherButton(container) {
     section.dataset.tag = 'otherbutton';
 
     section.innerHTML = `
-      <h2>🔗 其他按钮</h2>
+      <h2>🔗　其他按钮</h2>
       <div class="voice-buttons other-buttons"></div>
     `;
 
