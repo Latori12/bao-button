@@ -36,6 +36,11 @@ export const otherbutton = [
         color: "#857975"
     },
     {
+        title: "万花知按钮",
+        url: "https://wanhuazhi.shanerubian.online/",
+        color: "#5F9BFD"
+    },
+    {
         title: "猫丸子按钮",
         url: "https://maruko.xiaofei.icu/audio",
         color: "#4BA3FF"
