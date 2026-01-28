@@ -93,6 +93,8 @@ export const voices = [
         tag: "threatening"
     },*/
 
+    //问好
+
     {
         messages: { zh: "新年好"},
         path: "newyeargreeting.mp3",
@@ -118,6 +120,26 @@ export const voices = [
     },
 
     {
+        messages: { zh: "宝宝~晚上好哟~"},
+        path: "bbgoodnight.mp3",
+        tag: "greetings"
+    },
+
+    {
+        messages: { zh: "把你的米都给我*4"},
+        path: "givmeurmoney.mp3",
+        tag: "greetings"
+    },
+
+    {
+        messages: { zh: "反正我是不会说我到底播不播的~"},
+        path: "liveornot.mp3",
+        tag: "greetings"
+    },
+
+    //感谢
+
+    {
         messages: { zh: "感谢舰长"},
         path: "captain01.mp3",
         tag: "thanks"
@@ -134,6 +156,48 @@ export const voices = [
         path: "jiumi01.mp3",
         tag: "thanks"
     },
+
+    {
+        messages: { zh: "阿里嘎多~"},
+        path: "argd03.mp3",
+        tag: "thanks"
+    },
+
+    {
+        messages: { zh: "阿里嘎多~"},
+        path: "argd05.mp3",
+        tag: "thanks"
+    },
+
+    {
+        messages: { zh: "阿里嘎多~↗↘↗↘↗↘↗↘"},
+        path: "argduouououo.mp3",
+        tag: "thanks"
+    },
+
+    {
+        messages: { zh: "爱你哟宝宝~"},
+        path: "lvubb.mp3",
+        tag: "thanks"
+    },
+
+    //狗叫
+
+    {
+        messages: { zh: "嗷嗷"},
+        path: "aoao.mp3",
+        tag: "dogbark"
+    },
+
+    //猫叫哈气
+
+    {
+        messages: { zh: "哈————"},
+        path: "ha01.mp3",
+        tag: "cat"
+    },
+
+    //奶凶
 
     {
         messages: { zh: "我很可爱！抢钱！"},
@@ -154,14 +218,122 @@ export const voices = [
     },
 
     {
+        messages: { zh: "M~UA~"},
+        path: "mua.mp3",
+        tag: "cutelyfierce"
+    },
+
+    {
+        messages: { zh: "NYA~"},
+        path: "nya.mp3",
+        tag: "cutelyfierce"
+    },
+
+    {
+        messages: { zh: "我没有凶呜呜~"},
+        path: "haveno.mp3",
+        tag: "cutelyfierce"
+    },
+
+    //唱
+
+    {
         messages: { zh: "Padoru~"},
         path: "padoru.mp3",
         tag: "singsongs"
     },
 
+    //哼哼唧唧
+
+    {
+        messages: { zh: "嘟嘟嘟嘟嘟嘟嘟嘟嘟嘟~"},
+        path: "dddddddddd.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "哼哼哼哼哼哼~"},
+        path: "hhhhhh.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "囔囔囔囔~"},
+        path: "nnnnnn.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "囔囔囔囔囔囔囔囔~"},
+        path: "nnnnnnnnnnnn.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "囔囔囔囔囔囔囔囔囔囔~"},
+        path: "nnnnnnnnnnnnn.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "囔囔囔囔囔囔囔囔囔囔囔~"},
+        path: "nnnnnnnnnnnnnn.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "nyanyanya~"},
+        path: "nyanyanyanyanya.mp3",
+        tag: "hum"
+    },
+
+    {
+        messages: { zh: "嗯当当当当当当当当当~"},
+        path: "enddddddddd.mp3",
+        tag: "hum"
+    },
+
+    //实用语录
+
+    {
+        messages: { zh: "我懂你"},
+        path: "iknowu.mp3",
+        tag: "sentences"
+    },
+    
     {
         messages: { zh: "明白我什么意思吗？*2"},
         path: "youknowwhatimean.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "你懂吧！懂...懂了没..."},
+        path: "douknow.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "ん？なにが？"},
+        path: "naniga.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "ね？やさしい？"},
+        path: "neyasasii.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "ね？"},
+        path: "ne.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "ね？でしょ？"},
+        path: "nedesyo.mp3",
         tag: "sentences"
     },
 
@@ -172,8 +344,26 @@ export const voices = [
     },
 
     {
+        messages: { zh: "でしょ？*3"},
+        path: "dsdsds.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "わかるよ↘↗"},
+        path: "wakaruyo.mp3",
+        tag: "sentences"
+    },
+
+    {
         messages: { zh: "不安desu"},
         path: "fuandesu.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "太抽象了"},
+        path: "abstract.mp3",
         tag: "sentences"
     },
 
@@ -190,6 +380,18 @@ export const voices = [
     },
 
     {
+        messages: { zh: "你...我...*3"},
+        path: "umeumeume.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "神经病呀———"},
+        path: "sjba.mp3",
+        tag: "sentences"
+    },
+
+    {
         messages: { zh: "哈哈（无感情）"},
         path: "haha.mp3",
         tag: "sentences"
@@ -200,6 +402,242 @@ export const voices = [
         path: "sigh01.mp3",
         tag: "sentences"
     },
+
+    {
+        messages: { zh: "哎呀も~うるせぇ真麻烦啊"},
+        path: "mourusee.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "不对，这对吗"},
+        path: "rightornot.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "给点...时间..."},
+        path: "givmesometime.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "我勒个去"},
+        path: "wtf.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "哦哟"},
+        path: "oyo.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "还真是"},
+        path: "hzs.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "好黑的心啊"},
+        path: "evilheart.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "就是会这样子嘛~"},
+        path: "sothat.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "开心没有廉价高贵之分"},
+        path: "happinessnodifference.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "可以了"},
+        path: "enough.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "入脑了没"},
+        path: "rnlm.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "嘻嘻，一定要活下去"},
+        path: "xx.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "一定要活下去口牙"},
+        path: "mustlive.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "兄弟嘴一个"},
+        path: "kissbro01.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "真的吗"},
+        path: "true.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "真的是，嚯哟"},
+        path: "righthy.mp3",
+        tag: "sentences"
+    },
+
+    {
+        messages: { zh: "正经人谁看V啊~"},
+        path: "whowatchv.mp3",
+        tag: "sentences"
+    },
+    
+    //蜜汁发言
+
+    {
+        messages: { zh: "兄弟即使你带着奶龙面具我也会爱你的"},
+        path: "nailongmask.mp3",
+        tag: "weirdwords"
+    },
+    
+    {
+        messages: { zh: "云从龙风从虎"},
+        path: "yclfch.mp3",
+        tag: "weirdwords"
+    },
+
+    //做梦
+
+    {
+        messages: { zh: "感觉今天晚上可以坚持住诶"},
+        path: "canholdon.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "感谢男友粉的sc！阿里嘎多————"},
+        path: "nyfsc.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "果然是...傲娇男友粉"},
+        path: "tsunderenyf01.mp3",
+        tag: "dream"
+    },
+    
+    {
+        messages: { zh: "哎没办法~傲娇男友粉是这个样子的啦~"},
+        path: "tsunderenyf.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "nyf~*3"},
+        path: "nyfnyfnyf.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "没关系你也可以当男友粉"},
+        path: "ucanalsobenyf.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "不妨碍当我男友粉&你可以劈腿"},
+        path: "nyfpt.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "你是我的男友粉呀宝宝~"},
+        path: "urmynyfbb.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "大家都是男友粉 怎样 有问题吗"},
+        path: "allnyfanyquestion.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "天王老子来了也是男友粉"},
+        path: "godisnyf.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "入目所及全都是男友粉~"},
+        path: "insightallnyf.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "哇~全都是男友粉~しあわせ～"},
+        path: "nyfhappiness.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "诶，感觉可以安静下来了"},
+        path: "silence01.mp3",
+        tag: "dream"
+    },
+
+    {
+        messages: { zh: "是不是非常有感觉呀宝宝~"},
+        path: "sogoodbb.mp3",
+        tag: "dream"
+    },
+
+    //煲小鬼
+
+    {
+        messages: { zh: "バカバカ"},
+        path: "bkbk.mp3",
+        tag: "mesugaki"
+    },
+
+    {
+        messages: { zh: "没想到吧~"},
+        path: "ahhhmxdb.mp3",
+        tag: "mesugaki"
+    },
+
+    {
+        messages: { zh: "俺恁爹"},
+        path: "imurpapa.mp3",
+        tag: "mesugaki"
+    },
+
+    {
+        messages: { zh: "不知道你在说什么，诶嘿~"},
+        path: "dontknow.mp3",
+        tag: "mesugaki"
+    },
+
+    {
+        messages: { zh: "弱いね～"},
+        path: "yowaine.mp3",
+        tag: "mesugaki"
+    },
+
+    //什么声音
 
     {
         messages: { zh: "啊啊啊啊啊呃呃呃"},
@@ -232,16 +670,176 @@ export const voices = [
     },
 
     {
+        messages: { zh: "嗯↗↘↗"},
+        path: "enn.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "嗯~~~"},
+        path: "ennnn.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
         messages: { zh: "哈啊~"},
         path: "breatheandsigh.mp3",
         tag: "weirdsounds"
     },
 
     {
+        messages: { zh: "hiahiahia~"},
+        path: "hiahiahiahiahia.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "？"},
+        path: "mmmmmm.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "も～（破音）"},
+        path: "mo02.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "耶~*n"},
+        path: "yeiyyyyyy.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "耶哟~哟~*n"},
+        path: "yyyyyyy.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "呀~*n哟~*n"},
+        path: "yyyyyyy.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "↑↓"},
+        path: "uu.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "um um ↗↘ ↗↘ ↗↘"},
+        path: "weirdvoice.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "ummm"},
+        path: "ummm.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "嗯嗯嗯嗯嗯~"},
+        path: "ennnnn.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "嗯~囔囔囔~"},
+        path: "ennan.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "唔————"},
+        path: "wuuu.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "呀————"},
+        path: "yaaaaa.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "哟吼————"},
+        path: "yho.mp3",
+        tag: "weirdsounds"
+    },
+
+    //大笑，神人笑声
+
+    {
         messages: { zh: "开朗"},
         path: "laughter01.mp3",
         tag: "laughter"
     },
+
+    {
+        messages: { zh: "没绷住"},
+        path: "laughter05.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "幻想"},
+        path: "laughter02.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "得逞"},
+        path: "laughter03.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "耶嘿嘿嘿"},
+        path: "iehhh.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "哈哈~哈哈~"},
+        path: "hhhh.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "呵哈~"},
+        path: "heha.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "嘿嘿~"},
+        path: "heihei.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "嘿嘿哈~"},
+        path: "heiheiha.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "呵呵哈哈哈哈哈~"},
+        path: "laughter04.mp3",
+        tag: "laughter"
+    },
+
+    {
+        messages: { zh: "噫嘿呵哈哈哈哈~"},
+        path: "monkey01.mp3",
+        tag: "laughter"
+    },
+
+    //擦盘子
 
     {
         messages: { zh: "擦盘子壹"},
@@ -298,6 +896,182 @@ export const voices = [
     },
 
     {
+        messages: { zh: "擦盘子拾"},
+        path: "Dlaugh10.mp3",
+        tag: "dyinglylaugh"
+    },
+
+    {
+        messages: { zh: "擦盘子拾壹"},
+        path: "Dlaugh11.mp3",
+        tag: "dyinglylaugh"
+    },
+
+    {
+        messages: { zh: "擦盘子拾贰"},
+        path: "Dlaugh12.mp3",
+        tag: "dyinglylaugh"
+    },
+
+    {
+        messages: { zh: "擦盘子拾叁"},
+        path: "Dlaugh13.mp3",
+        tag: "dyinglylaugh"
+    },
+
+    {
+        messages: { zh: "擦盘子拾肆"},
+        path: "Dlaugh14.mp3",
+        tag: "dyinglylaugh"
+    },
+
+    //害羞和红温
+
+    {
+        messages: { zh: "stf走！stf别来看！"},
+        path: "stfaway.mp3",
+        tag: "steam"
+    },
+
+    {
+        messages: { zh: "很丢脸的！"},
+        path: "loseface.mp3",
+        tag: "steam"
+    },
+
+    //急
+
+    {
+        messages: { zh: "让我看到你们的弹幕！"},
+        path: "letmeeseeurdm.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "说话————"},
+        path: "speak.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "同接！回来！关注！回来！"},
+        path: "comeback.mp3",
+        tag: "loudly"
+    },
+    
+    {
+        messages: { zh: "你满意了吗？！"},
+        path: "rusatisfied.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "打我————"},
+        path: "hitme.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "为什么————"},
+        path: "whyyy.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "花Q————"},
+        path: "fQ.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "你打扰你王阿姨我赚米！"},
+        path: "botherme.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "你妨碍我营业！"},
+        path: "botherme02.mp3",
+        tag: "loudly"
+    },
+    
+    {
+        messages: { zh: "你罪大恶极！"},
+        path: "flagrance.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "现在大声告诉我！你们是我的谁！"},
+        path: "tellme.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "我催眠半天一点用都没有啊——"},
+        path: "saiminuseless.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "我不干了！我要回老家——"},
+        path: "gohome.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "回老家捡瓶子"},
+        path: "bottle.mp3",
+        tag: "loudly"
+    },
+
+    {
+        messages: { zh: "我不管！全都是男友粉！"},
+        path: "idontcareallnyf.mp3",
+        tag: "loudly"
+    },
+
+    //悲鸣
+
+    {
+        messages: { zh: "嗯mo~好生气"},
+        path: "enmosoangry.mp3",
+        tag: "groan"
+    },
+
+    {
+        messages: { zh: "A————"},
+        path: "Aaaaa.mp3",
+        tag: "groan"
+    },
+
+    {
+        messages: { zh: "A↗——"},
+        path: "Aaa.mp3",
+        tag: "groan"
+    },
+
+    {
+        messages: { zh: "嗯hh————"},
+        path: "enhh.mp3",
+        tag: "groan"
+    },
+
+    {
+        messages: { zh: "啊————"},
+        path: "aaaa.mp3",
+        tag: "groan"
+    },
+
+    {
+        messages: { zh: "呜————"},
+        path: "uuuu.mp3",
+        tag: "groan"
+    },
+
+    //音效
+
+    {
         messages: { zh: "邦邦邦~"},
         path: "bangbangbang.mp3",
         tag: "soundeffect"
@@ -310,10 +1084,36 @@ export const voices = [
     },
 
     {
+        messages: { zh: "受击02"},
+        path: "hit02.mp3",
+        tag: "soundeffect"
+    },
+
+    {
         messages: { zh: "倒吸一口凉皮"},
         path: "gasp01.mp3",
         tag: "soundeffect"
     },
+
+    {
+        messages: { zh: "老旧木门(啊)"},
+        path: "oldwoodendoor.mp3",
+        tag: "soundeffect"
+    },
+
+    {
+        messages: { zh: "啊呜"},
+        path: "au.mp3",
+        tag: "soundeffect"
+    },
+
+    {
+        messages: { zh: "哇~"},
+        path: "waa.mp3",
+        tag: "soundeffect"
+    },
+
+    //咳嗽
 
     {
         messages: { zh: "咳嗽"},
@@ -321,6 +1121,54 @@ export const voices = [
         tag: "cough"
     },
 
+    //清嗓子
+
+    {
+        messages: { zh: "清嗓01"},
+        path: "cth01.mp3",
+        tag: "clearthroat"
+    },
+
+    {
+        messages: { zh: "清嗓02"},
+        path: "cth02.mp3",
+        tag: "clearthroat"
+    },
+
+    {
+        messages: { zh: "清嗓03"},
+        path: "cth03.mp3",
+        tag: "clearthroat"
+    },
+
+    //嗝
+
+    {
+        messages: { zh: "嗝01"},
+        path: "hiccup01.mp3",
+        tag: "hiccup"
+    },
+
+    {
+        messages: { zh: "嗝02"},
+        path: "hiccup02.mp3",
+        tag: "hiccup"
+    },
+
+    {
+        messages: { zh: "嗝03"},
+        path: "hiccup03.mp3",
+        tag: "hiccup"
+    },
+
+    //东北口音
+
+    {
+        messages: { zh: "你说这夺不好意思诶"},
+        path: "sosorry.mp3",
+        tag: "northeastwang"
+    },
+    
     {
         messages: { zh: "咋地"},
         path: "sowhat01.mp3",
@@ -328,8 +1176,46 @@ export const voices = [
     },
 
     {
+        messages: { zh: "憋肘"},
+        path: "dontleave.mp3",
+        tag: "northeastwang"
+    },
+
+    {
+        messages: { zh: "费劲巴拉地整这么老半天"},
+        path: "fjbl.mp3",
+        tag: "northeastwang"
+    },
+
+    {
+        messages: { zh: "鼠标妹来啊"},
+        path: "mouseabsent.mp3",
+        tag: "northeastwang"
+    },
+
+    {
+        messages: { zh: "妹词儿说了"},
+        path: "noword.mp3",
+        tag: "northeastwang"
+    },
+
+    //暴力威胁
+
+    {
+        messages: { zh: "宝宝~不要这么暴躁嘛~"},
+        path: "dontbesogrumpy.mp3",
+        tag: "violence"
+    },
+    
+    {
         messages: { zh: "先给你两巴掌"},
         path: "slap01.mp3",
+        tag: "violence"
+    },
+
+    {
+        messages: { zh: "给你两拳"},
+        path: "punch04.mp3",
         tag: "violence"
     },
 
@@ -350,6 +1236,20 @@ export const voices = [
         path: "punch03.mp3",
         tag: "violence"
     },
+
+    {
+        messages: { zh: "木大木大木大"},
+        path: "mudamudamuda.mp3",
+        tag: "violence"
+    },
+
+    {
+        messages: { zh: "把我打似了你就满意了吗你这个暴力狂"},
+        path: "satisfaction.mp3",
+        tag: "violence"
+    },
+
+    //屎尿屁snp
 
     {
         messages: { zh: "答辩"},
@@ -385,6 +1285,248 @@ export const voices = [
         messages: { zh: "吔矢啦雷w"},
         path: "eatshit01.mp3",
         tag: "snp"
+    },
+
+    //催眠
+
+    {
+        messages: { zh: "催眠音声01"},
+        path: "saimin01.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "催眠音声02"},
+        path: "saimin02.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "我是女友御姐势~"},
+        path: "imgf.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "把你的米都给我*4"},
+        path: "givmeurmoney.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "快来当我的男友gachi粉吧~"},
+        path: "nygachi.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "你是我的男友gachi粉*n"},
+        path: "urmynyfgachi.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "快点入脑吧~"},
+        path: "rn.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "快入脑*n"},
+        path: "krn.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "你是王宝煲的男友gachi粉~"},
+        path: "urgachi.mp3",
+        tag: "saimin"
+    },
+
+    {
+        messages: { zh: "全都变成我的男友粉~*n"},
+        path: "allbemynyf.mp3",
+        tag: "saimin"
+    },
+
+    //角色扮演
+
+    {
+        messages: { zh: "冷淡嫌弃"},
+        path: "nauseaaway.mp3",
+        tag: "roleplay"
+    },
+    
+    {
+        messages: { zh: "真的有够恶心啊"},
+        path: "nausea.mp3",
+        tag: "roleplay"
+    },
+    
+    {
+        messages: { zh: "你自己能好好想想吗？真有够恶心的"},
+        path: "sonausea.mp3",
+        tag: "roleplay"
+    },
+    
+    {
+        messages: { zh: "离我远点可以吗"},
+        path: "stayawayfromme.mp3",
+        tag: "roleplay"
+    },
+
+    //营业
+
+    {
+        messages: { zh: "大家晚上好~"},
+        path: "evbdgoodnigh.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "男友粉们晚上好哟~"},
+        path: "nyfgoodnight.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "谢谢你男友粉=san"},
+        path: "thankunyf.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "感谢男友粉的棒棒糖~"},
+        path: "nyfbbt.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "感谢男友粉的口水黄豆~"},
+        path: "nyfkshd.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "感谢男友粉的人气票~"},
+        path: "nyfrqp.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "感谢男友粉的小花花~"},
+        path: "nyfxhh.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "男友粉男友粉M~UA~"},
+        path: "nyfmua.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "感谢男友粉的重拳出击~"},
+        path: "nyfzqcj.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "干嘛啦————"},
+        path: "gml.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "还是个家暴男友粉..."},
+        path: "dvnyf.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "没有吵的~宝宝~"},
+        path: "nonoisebb.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "想铜丝我果然是很爱我吧~"},
+        path: "sureloveme.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "可能是看错了原谅小王好不好"},
+        path: "forgive01.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "那你要什么~~~"},
+        path: "whatuwant.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "宽限宽限吧老爷~"},
+        path: "extend.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "原谅我好吗~"},
+        path: "forgiveme.mp3",
+        tag: "act"
+    },
+
+    {
+        messages: { zh: "主播从来没有哈气过哟~"},
+        path: "neverha.mp3",
+        tag: "act"
+    },
+
+    //营业失败
+
+    {
+        messages: { zh: "你是御姐..."},
+        path: "saiminfailyujie01.mp3",
+        tag: "actfail"
+    },
+
+    {
+        messages: { zh: "你是我的御...呸！"},
+        path: "saiminfailyujie02.mp3",
+        tag: "actfail"
+    },
+
+    {
+        messages: { zh: "你是我的御姐ww...呸！"},
+        path: "saiminfailyujie03.mp3",
+        tag: "actfail"
+    },
+    
+    {
+        messages: { zh: "宝宝哪里没有念你的男...呸！弹幕呀~"},
+        path: "sliptongue01.mp3",
+        tag: "actfail"
+    },
+
+    {
+        messages: { zh: "舰长群在复读什么大家知道吗？等等不对"},
+        path: "waitno.mp3",
+        tag: "actfail"
+    },
+
+    {
+        messages: { zh: "再也不搞了，切切切切切"},
+        path: "neverqie.mp3",
+        tag: "actfail"
+    },
+
+    {
+        messages: { zh: "有没有品味"},
+        path: "nosense.mp3",
+        tag: "actfail"
     }
 
     // 更多音频配置...
