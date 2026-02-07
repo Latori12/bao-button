@@ -771,6 +771,84 @@ export const voices = [
         tag: "weirdsounds"
     },
 
+    {
+        messages: { zh: "嗯mo~好生气"},
+        path: "enmosoangry.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "A————"},
+        path: "Aaaaa.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "A↗——"},
+        path: "Aaa.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "嗯hh————"},
+        path: "enhh.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "啊————"},
+        path: "aaaa.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "呜————"},
+        path: "uuuu.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "邦邦邦~"},
+        path: "bangbangbang.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "受击01"},
+        path: "hit01.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "受击02"},
+        path: "hit02.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "倒吸一口凉皮"},
+        path: "gasp01.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "老旧木门(啊)"},
+        path: "oldwoodendoor.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "啊呜"},
+        path: "au.mp3",
+        tag: "weirdsounds"
+    },
+
+    {
+        messages: { zh: "哇~"},
+        path: "waa.mp3",
+        tag: "weirdsounds"
+    },
+
     //大笑，神人笑声
 
     {
@@ -839,90 +917,88 @@ export const voices = [
         tag: "laughter"
     },
 
-    //擦盘子
-
     {
         messages: { zh: "擦盘子壹"},
         path: "Dlaugh01.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子贰"},
         path: "Dlaugh02.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子叁"},
         path: "Dlaugh03.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子肆"},
         path: "Dlaugh04.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子伍"},
         path: "Dlaugh05.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子陆"},
         path: "Dlaugh06.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子柒"},
         path: "Dlaugh07.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子捌"},
         path: "Dlaugh08.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子玖"},
         path: "Dlaugh09.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子拾"},
         path: "Dlaugh10.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子拾壹"},
         path: "Dlaugh11.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子拾贰"},
         path: "Dlaugh12.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子拾叁"},
         path: "Dlaugh13.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     {
         messages: { zh: "擦盘子拾肆"},
         path: "Dlaugh14.mp3",
-        tag: "dyinglylaugh"
+        tag: "laughter"
     },
 
     //害羞和红温
@@ -1031,89 +1107,7 @@ export const voices = [
         tag: "loudly"
     },
 
-    //悲鸣
-
-    {
-        messages: { zh: "嗯mo~好生气"},
-        path: "enmosoangry.mp3",
-        tag: "groan"
-    },
-
-    {
-        messages: { zh: "A————"},
-        path: "Aaaaa.mp3",
-        tag: "groan"
-    },
-
-    {
-        messages: { zh: "A↗——"},
-        path: "Aaa.mp3",
-        tag: "groan"
-    },
-
-    {
-        messages: { zh: "嗯hh————"},
-        path: "enhh.mp3",
-        tag: "groan"
-    },
-
-    {
-        messages: { zh: "啊————"},
-        path: "aaaa.mp3",
-        tag: "groan"
-    },
-
-    {
-        messages: { zh: "呜————"},
-        path: "uuuu.mp3",
-        tag: "groan"
-    },
-
-    //音效
-
-    {
-        messages: { zh: "邦邦邦~"},
-        path: "bangbangbang.mp3",
-        tag: "soundeffect"
-    },
-
-    {
-        messages: { zh: "受击01"},
-        path: "hit01.mp3",
-        tag: "soundeffect"
-    },
-
-    {
-        messages: { zh: "受击02"},
-        path: "hit02.mp3",
-        tag: "soundeffect"
-    },
-
-    {
-        messages: { zh: "倒吸一口凉皮"},
-        path: "gasp01.mp3",
-        tag: "soundeffect"
-    },
-
-    {
-        messages: { zh: "老旧木门(啊)"},
-        path: "oldwoodendoor.mp3",
-        tag: "soundeffect"
-    },
-
-    {
-        messages: { zh: "啊呜"},
-        path: "au.mp3",
-        tag: "soundeffect"
-    },
-
-    {
-        messages: { zh: "哇~"},
-        path: "waa.mp3",
-        tag: "soundeffect"
-    },
-
-    //咳嗽
+    //故障
 
     {
         messages: { zh: "咳嗽"},
@@ -1121,44 +1115,40 @@ export const voices = [
         tag: "cough"
     },
 
-    //清嗓子
-
     {
         messages: { zh: "清嗓01"},
         path: "cth01.mp3",
-        tag: "clearthroat"
+        tag: "cough"
     },
 
     {
         messages: { zh: "清嗓02"},
         path: "cth02.mp3",
-        tag: "clearthroat"
+        tag: "cough"
     },
 
     {
         messages: { zh: "清嗓03"},
         path: "cth03.mp3",
-        tag: "clearthroat"
+        tag: "cough"
     },
-
-    //嗝
 
     {
         messages: { zh: "嗝01"},
         path: "hiccup01.mp3",
-        tag: "hiccup"
+        tag: "cough"
     },
 
     {
         messages: { zh: "嗝02"},
         path: "hiccup02.mp3",
-        tag: "hiccup"
+        tag: "cough"
     },
 
     {
         messages: { zh: "嗝03"},
         path: "hiccup03.mp3",
-        tag: "hiccup"
+        tag: "cough"
     },
 
     //东北口音
