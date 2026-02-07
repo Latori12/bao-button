@@ -35,27 +35,23 @@ export const zhLocale = {
         //新添加标签
         greetings: "👋　Domo, 王宝煲DESU", //也就是各种问候
         thanks: "⚓　感谢支持",            //各种营业词感谢
-        singsongs: "🎤　煲半首",           //这边指的是各种随便唱两句的
-        sentences: "📔　实用语录",         //一些经常或者不经常讲的固定搭配
+        singsongs: "🎤　小唱两句",           //这边指的是各种随便唱两句的
+        sentences: "📔　固定搭配",         //一些经常或者不经常讲的固定搭配
         weirdsounds: "🤔　什么动静",       //一些小动静
-        cutelyfierce: "😡　超凶",          //指的是一些营业上的可爱威胁
-        laughter: "🤣　烨然若神人",        //很大的笑
-        dyinglylaugh: "😆　擦盘子",        //断气式笑声
-        soundeffect: "🎧　煲音效",         //不知道在讲什么
+        cutelyfierce: "😠　超凶",          //指的是一些营业上的可爱威胁
+        laughter: "🤣　爽朗的笑声",        //很大的笑
         northeastwang: "👨‍🦱　东百王姐",     //东北口音
         snp: "💩　snp",                   //snp主播
         violence: "💪　暴力魔人",          //暴力发言
-        cough: "😷　咳嗽",                 //咳嗽
-        hiccup: "😲　煲嗝",                //嗝
-        clearthroat: "😣　清嗓",           //清嗓子，但感觉没必要分这个出来
+        cough: "😷　故障机器人",           //咳嗽、嗝、清嗓等
         mesugaki: "🧒　煲小鬼",            //雌小鬼
         groan: "🥺　你有没有听见主煲的悲鸣", //悲鸣都先放这
-        hum: "🎶　煲小曲儿",               //哼歌，但随便哼哼
+        hum: "🎶　不知道在哼什么的小曲",      //哼歌，但随便哼哼
         dream: "😴　好梦在何方",           //御姐女友势男友粉等做梦相关
-        steam: "💢　防御反击型红温",        //害羞或者红温了的超大声找补
-        loudly: "🤬　兄弟你别急让我先急",   //大声“怒吼”之类的
+        steam: "😡　你脸怎么红了",         //害羞或者红温了的超大声找补
+        loudly: "💢　兄弟你别急让我先急",   //大声“怒吼”之类的
         dogbark: "🐶　native speaker",     //狗叫
-        cat: "🐱　喵&哈",                  //猫叫和哈气
+        cat: "🐱　我是猫",                  //猫叫和哈气
         act: "😘　营业",                   //营业
         roleplay: "👩‍🎨　RP (Role Play)",    //角色扮演
         actfail: "💦　营业失败",           //口误、没绷住或其他原因的营业失败
