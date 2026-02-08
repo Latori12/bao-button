@@ -1117,7 +1117,7 @@ export const voices = [
 
     {
         messages: { zh: "呀~*n哟~*n"},
-        path: "yyyyyyy.mp3",
+        path: "yyyyyyyy.mp3",
         tag: "weirdsounds"
     },
 
