@@ -56,7 +56,8 @@ export const zhLocale = {
         roleplay: "👩‍🎨　RP (Role Play)",    //角色扮演
         actfail: "💦　营业失败",           //口误、没绷住或其他原因的营业失败
         saimin: "💫　催眠",                //催眠
-        weirdwords: "❔　謎の発言"          //迷惑发言
+        weirdwords: "❔　謎の発言",         //迷惑发言
+        pig: "🐷　超级蓝毛是投注"           //猪叫
         // 注意：键名必须与 voices.js 中的 tag 完全一致
         // 包括大小写（建议统一使用小写）
     }
