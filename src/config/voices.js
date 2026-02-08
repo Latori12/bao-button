@@ -962,7 +962,7 @@ export const voices = [
     },
 
     {
-        messages: { zh: "得意与自己这个曼妙的身材"},
+        messages: { zh: "得意于自己这个曼妙的身材"},
         path: "nicebody02.mp3",
         tag: "dream"
     },
