@@ -93,6 +93,392 @@ export const voices = [
         tag: "threatening"
     },*/
 
+    //最近更新
+
+    {
+        messages: { zh: "我是品种狗"},
+        path: "breedingdog.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "nia"},
+        path: "nia02.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "汪汪（英文）"},
+        path: "woof.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "爸爸抱抱（超大声）"},
+        path: "bbbb01.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "爸爸抱抱"},
+        path: "bbbb02.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "彼此彼此我们都是神人"},
+        path: "allweird.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "闭嘴"},
+        path: "shutup.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "驳回"},
+        path: "bh.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "不会是暗恋我吧"},
+        path: "kataomoi.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "不能炸，今天主播是御姐"},
+        path: "sistoday.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "不让你王姐抽那抽你吗"},
+        path: "chou.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "不准，憋住"},
+        path: "hold.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "不准发"},
+        path: "dontsend.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "催稿！哈哈！"},
+        path: "prompthaha.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "打死你"},
+        path: "hityou.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "大便魔法"},
+        path: "poomagic.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "爹爹~"},
+        path: "daddy.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "爹！我要玩矢"},
+        path: "dadiplaypoo.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "对！我是变态！"},
+        path: "yeahimhentai.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "父————亲————"},
+        path: "father.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "啊？"},
+        path: "nga.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "回来，跟你王姐嘴一个"},
+        path: "kiss01.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "够不够女友"},
+        path: "gfenough.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "嗨~美女，一个人看直播吗"},
+        path: "hibeauty.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "嘿嘿嘿嘿嘿"},
+        path: "hhhhh260320.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "主播已经很久没跳脸了，该跳一下了"},
+        path: "jump01.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "主播今天一整场直播都要说大便"},
+        path: "alllivepoo.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "拒绝观看"},
+        path: "refusewatch.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "老板说话呀"},
+        path: "bosssay.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "老师我想上厕所"},
+        path: "teachertoilet.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "老子还可爱不"},
+        path: "cuteme.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "妈妈嘴一个"},
+        path: "momkiss.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "没有小狗汤圆"},
+        path: "nopuppydumpling.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "嗯~你想干什么"},
+        path: "wdyd.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "老师我想上厕所"},
+        path: "teachertoilet.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "忍住，憋回去"},
+        path: "smother.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "嗯？"},
+        path: "enu.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "你懂什么"},
+        path: "uknownothing.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "哦捏该哟宝宝~"},
+        path: "helpbaby.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "人呢？"},
+        path: "where.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "入目所及，大家全是主播的儿子"},
+        path: "allmyson.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "是不是蛮大的"},
+        path: "bigright.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "说话"},
+        path: "say.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "忍住，憋回去"},
+        path: "smother.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "太有女友感啦"},
+        path: "gfenough01.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "天哪抖M"},
+        path: "goddm.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "为什么我就不能是变态呢"},
+        path: "whyicantbehentai.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "我们是嘴一个的关系"},
+        path: "kissrelationship.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "我是温顺的电饭煲"},
+        path: "docile.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "我要亲死你"},
+        path: "kissu.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "主播一个香香软软电饭煲"},
+        path: "fragrantpot.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "我们是嘴一个的关系"},
+        path: "kissrelationship.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "心平气和"},
+        path: "peace.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "兄弟兄弟嘴一个"},
+        path: "kissbro.mp3",
+        tag: "update"
+    },
+    
+    {
+        messages: { zh: "有没有一种可能大家都是神人"},
+        path: "allbeweird.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "有一说一"},
+        path: "yysy.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "原谅小王呗"},
+        path: "forgivewang.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "原谅小王好不好"},
+        path: "forgivewang01.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "再揭你王姐短下播拿烟头烫你"},
+        path: "buttyou.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "这有什么不好嘴的，这必须嘴"},
+        path: "mustkiss.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "这不是全都是狗叫吗"},
+        path: "allbark.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "主播不是人"},
+        path: "nothuman.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "人呢，嘴一个"},
+        path: "wherekiss.mp3",
+        tag: "update"
+    },
+
+    {
+        messages: { zh: "嘴主播就这么让你为难吗"},
+        path: "kisshard.mp3",
+        tag: "update"
+    },
+
     //问好
 
     {
