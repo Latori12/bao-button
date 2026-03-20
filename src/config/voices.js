@@ -300,12 +300,6 @@ export const voices = [
     },
 
     {
-        messages: { zh: "老师我想上厕所"},
-        path: "teachertoilet.mp3",
-        tag: "update"
-    },
-
-    {
         messages: { zh: "忍住，憋回去"},
         path: "smother.mp3",
         tag: "update"
@@ -398,12 +392,6 @@ export const voices = [
     {
         messages: { zh: "主播一个香香软软电饭煲"},
         path: "fragrantpot.mp3",
-        tag: "update"
-    },
-
-    {
-        messages: { zh: "我们是嘴一个的关系"},
-        path: "kissrelationship.mp3",
         tag: "update"
     },
 
