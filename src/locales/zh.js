@@ -33,6 +33,7 @@ export const zhLocale = {
         // 音频分类标签翻译
 
         //新添加标签
+        update: "⌛　最近更新",             //更新的先放这里
         greetings: "👋　Domo, 王宝煲DESU", //也就是各种问候
         thanks: "⚓　感谢支持",            //各种营业词感谢
         singsongs: "🎤　小唱两句",           //这边指的是各种随便唱两句的
