@@ -347,13 +347,7 @@ export const voices = [
         tag: "update"
     },
 
-    {
-        messages: { zh: "忍住，憋回去"},
-        path: "smother.mp3",
-        tag: "update"
-    },
-
-    {
+        {
         messages: { zh: "太有女友感啦"},
         path: "gfenough01.mp3",
         tag: "update"
