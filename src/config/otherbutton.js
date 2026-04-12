@@ -44,5 +44,10 @@ export const otherbutton = [
         title: "猫丸子按钮",
         url: "https://maruko.xiaofei.icu/audio",
         color: "#4BA3FF"
+    },
+    {
+        title: "星光按钮",
+        url: "https://www.kirarin.top/",
+        color: "#f8b2bb"
     }
 ];
