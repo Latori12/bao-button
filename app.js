@@ -2,7 +2,7 @@
 import { zhLocale } from './src/locales/zh.js';
 import { voices } from './src/config/voices.js';
 import { CDN_CONFIGS } from './src/config/cdns.js';
-import { otherbutton } from './src/config/otherbutton.js';
+import { otherbutton, otherbuttonRemote } from './src/config/otherbutton.js';
 
 const CONCURRENCY_MIX = 5
 let AUIDO_URL = ""
@@ -21,6 +21,7 @@ const state = {
     },
     totalToLoad: 0,
     loadedCount: 0,
+    otherButtons: otherbutton,
     selectedCdn: null, // 新增：选中的CDN
     availableCdns: CDN_CONFIGS || [], // 新增：可用的CDN列表
     isSingleCdnMode: CDN_CONFIGS && CDN_CONFIGS.length === 1, // 判断是否单CDN模式
@@ -398,6 +399,8 @@ async function startAudioLoading() {
         // 绑定 scroll-spy
         bindScrollSpy();
 
+        loadRemoteOtherButtons();
+
         console.log('初始化完成，已加载音频:', state.voices.length);
         if (state.isLocalMode) {
             console.log('使用本地文件模式');
@@ -412,6 +415,7 @@ async function startAudioLoading() {
         renderVoiceButtons();
         bindEvents();
         bindScrollSpy();
+        loadRemoteOtherButtons();
     }
 }
 
@@ -621,6 +625,121 @@ function bindScrollSpy() {
     });
 }
 
+function normalizeOtherButtonUrl(url) {
+    try {
+        const parsed = new URL(url);
+        parsed.hash = '';
+        parsed.search = '';
+        parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+        return parsed.toString().replace(/\/$/, '');
+    } catch (error) {
+        return String(url || '').trim().replace(/\/$/, '');
+    }
+}
+
+function buildOtherButtonRemoteUrl() {
+    const url = new URL(otherbuttonRemote.endpoint);
+    Object.entries(otherbuttonRemote.params || {}).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+            url.searchParams.set(key, value.join(','));
+        } else if (value !== undefined && value !== null && value !== '') {
+            url.searchParams.set(key, value);
+        }
+    });
+    return url.toString();
+}
+
+function mergeOtherButtons(localButtons, remoteButtons) {
+    const usedUrls = new Set();
+    const selfUrl = normalizeOtherButtonUrl(otherbuttonRemote.selfUrl);
+    const result = [];
+    const remoteByUrl = new Map();
+
+    remoteButtons.forEach(item => {
+        const normalizedUrl = normalizeOtherButtonUrl(item.url);
+        if (!normalizedUrl || normalizedUrl === selfUrl || remoteByUrl.has(normalizedUrl)) return;
+
+        remoteByUrl.set(normalizedUrl, item);
+    });
+
+    localButtons.forEach(item => {
+        const normalizedUrl = normalizeOtherButtonUrl(item.url);
+        if (!normalizedUrl || usedUrls.has(normalizedUrl)) return;
+
+        const remoteItem = remoteByUrl.get(normalizedUrl);
+        usedUrls.add(normalizedUrl);
+        result.push({
+            ...item,
+            title: remoteItem?.title || item.title
+        });
+    });
+
+    remoteButtons.forEach(item => {
+        const normalizedUrl = normalizeOtherButtonUrl(item.url);
+        if (!normalizedUrl || normalizedUrl === selfUrl || usedUrls.has(normalizedUrl)) return;
+
+        usedUrls.add(normalizedUrl);
+        result.push(item);
+    });
+
+    return result;
+}
+
+async function loadRemoteOtherButtons() {
+    if (!otherbuttonRemote.enabled || !otherbuttonRemote.endpoint) return;
+
+    try {
+        const response = await fetch(buildOtherButtonRemoteUrl());
+        const data = await response.json();
+
+        if (!response.ok || !data.success || !Array.isArray(data.data?.list)) {
+            throw new Error('Invalid otherbutton remote response');
+        }
+
+        const remoteButtons = data.data.list.map(item => ({
+            title: item.name || item.author || item.url,
+            url: item.url
+        }));
+
+        state.otherButtons = mergeOtherButtons(otherbutton, remoteButtons);
+        renderOtherButtonSection();
+    } catch (error) {
+        console.warn('加载远端其他按钮失败，继续使用本地配置:', error);
+    }
+}
+
+function renderOtherButtonSection() {
+    const section = document.getElementById(makeSectionId('otherbutton'));
+    if (!section) return;
+
+    const btnBox = section.querySelector('.voice-buttons');
+    if (!btnBox) return;
+
+    btnBox.innerHTML = '';
+    state.otherButtons.forEach(item => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'haruka-button';
+
+        const btn = document.createElement('button');
+        btn.textContent = item.title;
+
+        // 为按钮设置专属颜色；远端按钮不带颜色时走 CSS 默认值
+        if (item.color) {
+            btn.style.setProperty('--other-main', item.color);
+        }
+        if (item.light) {
+            btn.style.setProperty('--other-light', item.light);
+        }
+
+        btn.addEventListener('click', () => {
+            window.open(item.url, '_blank');
+        });
+
+        wrapper.appendChild(btn);
+        btnBox.appendChild(wrapper);
+    });
+}
+
 function renderOtherButton(container) {
     const section = document.createElement('div');
     section.className = 'voice-category';
@@ -632,31 +751,8 @@ function renderOtherButton(container) {
       <div class="voice-buttons other-buttons"></div>
     `;
 
-    const btnBox = section.querySelector('.voice-buttons');
-
-    otherbutton.forEach(item => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'haruka-button';
-
-        const btn = document.createElement('button');
-        btn.textContent = item.title;
-
-        //为按钮设置专属颜色
-        btn.style.setProperty('--other-main', item.color || 'var(--primary-color)');
-        btn.style.setProperty(
-            '--other-light',
-            item.light || 'var(--primary-light)'
-        );
-
-        btn.addEventListener('click', () => {
-            window.open(item.url, '_blank');
-        });
-
-        wrapper.appendChild(btn);
-        btnBox.appendChild(wrapper);
-    });
-
     container.appendChild(section);
+    renderOtherButtonSection();
 }
 
 

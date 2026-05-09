@@ -493,11 +493,13 @@ body {
 
 /* ===== 其他按钮配色 ===== */
 .other-buttons .haruka-button button {
+    --other-main: color-mix(in srgb, var(--primary-color), black 15%);
+
     background: linear-gradient(180deg,
             rgba(255, 255, 255, 0.85),
-            color-mix(in srgb, var(--other-main, var(--primary-active)) 40%, white));
+            color-mix(in srgb, var(--other-main) 40%, white));
 
-    color: var(--other-main);
+    color: var(--other-main, var(--primary-color));
 
     border: 1px solid color-mix(in srgb,
             var(--primary-color) 40%,
