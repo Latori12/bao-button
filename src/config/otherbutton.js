@@ -42,12 +42,36 @@ export const otherbutton = [
     },
     {
         title: "猫丸子按钮",
-        url: "https://maruko.xiaofei.icu/audio",
+        url: "https://maruko.xiaofei.icu/",
         color: "#4BA3FF"
     },
     {
         title: "星光按钮",
-        url: "https://www.kirarin.top/",
+       url: "https://www.kirarin.top/",
         color: "#f8b2bb"
+    },
+    {
+        title: "呼呼miku-Wiki",
+       url: "https://huhu.xiaofei.icu/",
+        color: "#f56c6c"
+    },
+    {
+        title: "霄奈子╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ",
+        url: "https://nako.shanerubian.online/",
+        color: "#ce465a"
+    },
+    {
+        title: "黛棠OI-WIKI",
+        url: "https://daitangoi.asia/",
+        color: "#9b2a1a"
     }
 ];
+
+export const otherbuttonRemote = {
+    enabled: true,
+    endpoint: "https://friendlink.xiaofei.icu/api/links",
+    params: {
+        limit: 100
+    },
+    selfUrl: "https://wangbaobao.moe"
+};
