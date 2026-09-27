@@ -53,7 +53,7 @@ test('ingredients wrap after ten and board follows the covered background', () =
         left: 530, top: 510, width: 550, height: 160,
     });
     assert.equal(boardRect(800, 941).left, 94.5);
-    assert.equal(ingredientPosition(20, 30, 'egg').top, '10%');
+    assert.equal(ingredientPosition(20, 30, 'egg').top, '2.5%');
     assert.ok(parseFloat(ingredientPosition(10, 31, 'egg').top) <
         parseFloat(ingredientPosition(10, 30, 'egg').top));
     assert.ok(parseFloat(ingredientPosition(10, 11, 'tomato').top) < 62);
@@ -67,7 +67,8 @@ test('ingredients wrap after ten and board follows the covered background', () =
             const top = parseFloat(position.top);
             const width = parseFloat(position.width);
             assert.ok(left >= 0 && left + width <= 100);
-            assert.ok(top >= 0 && top + width * 550 / 160 * heightRatio <= 100);
+            // 食材整体上移了 20 个布局像素，允许进入砧板上方的留白。
+            assert.ok(top >= -12.5 && top + width * 550 / 160 * heightRatio <= 100);
         }
     }
     assert.ok(parseFloat(ingredientPosition(0, 10, 'tomato').width) >

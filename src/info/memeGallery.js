@@ -97,7 +97,19 @@ function openLightbox(index) {
         touchStartY = null;
     }, { passive: true });
     overlay.addEventListener('click', event => {
-        if (event.target === overlay) closeLightbox();
+        if (event.target.closest('button, a')) return;
+        if (event.target === image && image.naturalWidth && image.naturalHeight) {
+            // object-fit 留出的空白也属于图片外，只保留实际图像区域。
+            const bounds = image.getBoundingClientRect();
+            const scale = Math.min(bounds.width / image.naturalWidth, bounds.height / image.naturalHeight);
+            const width = image.naturalWidth * scale;
+            const height = image.naturalHeight * scale;
+            const left = bounds.left + (bounds.width - width) / 2;
+            const top = bounds.top + (bounds.height - height) / 2;
+            if (event.clientX >= left && event.clientX <= left + width
+                && event.clientY >= top && event.clientY <= top + height) return;
+        }
+        closeLightbox();
     });
     document.body.appendChild(overlay);
     document.body.classList.add('meme-lightbox-open');
