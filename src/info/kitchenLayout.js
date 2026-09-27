@@ -75,7 +75,7 @@ export function ingredientPosition(index, count, kind) {
     const tomato = kind === 'tomato';
     const top = (tomato ? 64 : 0) + (rows === 1
         ? 6
-        : row * (tomato ? 8 : 16) / (rows - 1));
+        : row * (tomato ? 8 : 24) / (rows - 1));
     const depth = (top + (tomato ? 30 : 29)) / BOARD.height;
     const width = (tomato ? 70 + 3 * depth : 58 + 2 * depth) * 1.3;
     const topDepth = top / BOARD.height;
@@ -83,10 +83,10 @@ export function ingredientPosition(index, count, kind) {
     const rightEdge = TOP_EDGE.right + (BOTTOM_EDGE.right - TOP_EDGE.right) * topDepth;
     const step = tomato ? 48 : 39;
     const left = Math.min(leftEdge + (tomato ? 6 : 14) + (index % 10) * step,
-        rightEdge - width);
+        rightEdge - width) + 9 - row * 5;
     return {
         left: `${left / BOARD.width * 100}%`,
-        top: `${top / BOARD.height * 100}%`,
+        top: `${(top - 20) / BOARD.height * 100}%`,
         width: `${width / BOARD.width * 100}%`,
         zIndex: row + 1,
     };
