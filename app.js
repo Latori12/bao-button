@@ -194,6 +194,9 @@ function renderVoiceButtons() {
 
         // 渲染分类标题
         const tagName = getLocalizedTag(tag);
+        if (/(?:^|\s)最近更新$/u.test(tagName)) {
+            categoryElement.classList.add('voice-category--recent');
+        }
         const heading = document.createElement('h2');
         const headingParts = tagName.match(/^(\S+)\s+(.+)$/u);
         if (headingParts) {
