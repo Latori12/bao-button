@@ -782,6 +782,90 @@ body::after {
 
 .topbar-controls {
     gap: 10px;
+    max-width: 100%;
+    padding-bottom: 0;
+}
+
+/* Read-only playback display uses the same translucent blue surface as controls. */
+.now-playing {
+    flex: 0 1 480px;
+    width: 480px;
+    min-width: 220px;
+    height: 132px;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid var(--ui-control-border);
+    border-radius: 20px;
+    background: var(--button-surface);
+    box-shadow: var(--control-shadow);
+    color: var(--ui-ink);
+}
+.now-playing-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 21px;
+}
+.now-playing-list {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--ui-ink-rgb) / 0.22) transparent;
+    list-style: none;
+    padding-right: 4px;
+}
+.now-playing-list:focus-visible { outline: 1px solid var(--ui-accent); outline-offset: 2px; border-radius: 6px; }
+.now-playing-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "title repeats" "category repeats";
+    align-items: center;
+    column-gap: 10px;
+    padding-block: 2px;
+    min-height: 42px;
+    border-bottom: 1px solid rgb(var(--ui-border-ink-rgb) / 0.1);
+}
+.now-playing-row:last-child { border-bottom: 0; }
+.now-playing-title { grid-area: title; font-size: 16px; line-height: 20px; font-weight: 600; }
+.now-playing-category { grid-area: category; font-size: 13px; line-height: 18px; color: var(--ui-ink-soft); }
+.now-playing-title, .now-playing-category { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.now-playing-repeats { grid-area: repeats; white-space: nowrap; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--ui-ink-soft); }
+.now-playing-empty { display: grid; place-items: center; min-height: 100%; font-size: 14px; color: var(--ui-ink-soft); }
+
+@media (orientation: landscape) {
+    html[data-layout="flow"] .now-playing { flex-basis: 280px; width: 280px; min-width: 180px; height: 112px; padding: 6px 9px; border-radius: 16px; }
+    html[data-layout="flow"] .topbar-controls {
+        display: grid;
+        grid-template-columns: minmax(150px, 1fr) auto auto;
+        width: 100%;
+        margin-left: 0;
+        gap: 6px;
+    }
+    html[data-layout="flow"] .topbar-controls .now-playing {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: auto;
+        min-width: 0;
+    }
+    html[data-layout="flow"] .topbar-controls #randomPlay,
+    html[data-layout="flow"] .topbar-controls #stopAll { padding: 6px 10px; min-height: 34px; font-size: 14px; }
+    html[data-layout="flow"] .topbar-controls #randomPlay { grid-column: 2; grid-row: 1; }
+    html[data-layout="flow"] .topbar-controls #stopAll { grid-column: 3; grid-row: 1; }
+    html[data-layout="flow"] .topbar-controls label { grid-column: 2 / 4; grid-row: 2; }
+    html[data-layout="flow"] .topbar-controls #changeCdn { grid-column: 2 / 4; }
+}
+@media (orientation: portrait) and (max-width: 820px) {
+    .now-playing { flex: 1 1 100%; width: 100%; min-width: 0; height: 112px; }
 }
 
 .topbar-controls #randomPlay,
@@ -1256,7 +1340,7 @@ body::after {
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
     .footer-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
@@ -1273,7 +1357,7 @@ body::after {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (orientation: portrait) {
     .app-footer {
         padding: 20px 15px;
         margin-top: 30px;
@@ -1289,7 +1373,7 @@ body::after {
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px) and (orientation: portrait) {
     :root { --sidebar-width: 220px; --sidebar-icon-inset: 16px; --sidebar-shift: 0px; }
 
     .app-header {
@@ -1315,7 +1399,7 @@ body::after {
     }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 820px) and (orientation: portrait) {
     :root { --sidebar-width: 180px; --sidebar-icon-inset: 13px; }
 
     .app-frame {
@@ -1389,7 +1473,7 @@ body::after {
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 560px) and (orientation: portrait) {
     :root { --sidebar-width: 124px; --sidebar-icon-inset: 13px; }
 
     .app-header {
@@ -1461,8 +1545,8 @@ body::after {
     .loading-content { width: calc(100% - 32px); padding: 28px 22px; }
 }
 
-/* Small or tall viewports use a solid surface; the photo stays desktop-only. */
-@media (max-width: 820px), (max-aspect-ratio: 4/3) {
+/* Portrait viewports use a solid surface; landscape has its own layout below. */
+@media (orientation: portrait) {
     body {
         background: var(--surface-cool);
     }
@@ -1767,7 +1851,7 @@ body::after {
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
     .cdn-options-container {
         grid-template-columns: 1fr;
     }
@@ -1778,7 +1862,7 @@ body::after {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (orientation: portrait) {
     .cdn-select-content {
         padding: var(--spacing-md);
     }
@@ -1828,7 +1912,7 @@ body::after {
     display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px) and (orientation: portrait) {
     .info-overview {
         grid-template-columns: 1fr;
     }
@@ -1980,7 +2064,7 @@ body::after {
     line-height: 1.5;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px) and (orientation: portrait) {
     .current-status-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-areas:
@@ -1994,7 +2078,7 @@ body::after {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (orientation: portrait) {
     .current-status-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -2229,7 +2313,7 @@ body::after {
     font-weight: 600;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px) and (orientation: portrait) {
     .kitchen-frame {
         min-height: 480px;
     }
@@ -2716,7 +2800,7 @@ body::after {
     padding-left: 18px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) and (orientation: portrait) {
     .prediction-layout {
         grid-template-columns: 1fr;
     }
@@ -2841,13 +2925,13 @@ body.meme-lightbox-open {
     text-decoration: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (orientation: portrait) {
     .meme-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (orientation: portrait) {
     .meme-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -2863,4 +2947,181 @@ body.meme-lightbox-open {
     .meme-lightbox-stage button {
         padding: 6px;
     }
+}
+
+/* Preserve the published desktop sizes; resize the available area only. */
+html[data-layout="scene"] {
+    --sidebar-width: 280px;
+    --sidebar-shift: 30px;
+    --scene-width: var(--photo-width);
+    --scene-height: var(--photo-height);
+}
+html[data-layout="scene"] body::after {
+    background-size: 100% 100%, 100% 100%;
+    background-position: center, center;
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+html[data-layout="scene"] .app-frame {
+    top: var(--frame-top);
+    left: var(--frame-left);
+    width: var(--frame-width);
+    height: var(--frame-height);
+    transform: none;
+    /* Allow the raised playback display above the frame; the sidebar and
+       content panel already clip their own scrolling content. */
+    overflow: visible;
+}
+html[data-layout="scene"] .topbar { container: topbar / inline-size; min-width: 0; }
+html[data-layout="scene"] .haruka-button { max-width: 100%; }
+html[data-layout="scene"] .haruka-button button { max-width: 100%; }
+html[data-layout="scene"] .topbar-controls button,
+html[data-layout="scene"] .topbar-controls label { white-space: nowrap; }
+/* Keep the taller display above the scrolling content without changing
+   the header height or the published voice-list position. */
+html[data-layout="scene"] .now-playing {
+    height: 132px;
+    margin-block: -22px;
+    position: relative;
+    top: -7px;
+}
+@container topbar (max-width: 1300px) {
+    html[data-layout="scene"] .now-playing { margin-block: 0; top: 0; }
+}
+/* Let the actual topbar width decide the layout, including sidebar changes. */
+@container topbar (max-width: 1050px) {
+    html[data-layout="scene"] .topbar-controls {
+        width: 100%;
+        margin-left: 0;
+    }
+    html[data-layout="scene"] .topbar-controls .now-playing { flex: 1 1 220px; min-width: 0; }
+    html[data-layout="scene"] .topbar-tab {
+        min-height: 62px;
+        font-size: 34px;
+        padding-block: 10px;
+    }
+}
+@container topbar (max-width: 700px) {
+    html[data-layout="scene"] .topbar-controls {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+    }
+    html[data-layout="scene"] .topbar-controls .now-playing {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 100%;
+        height: 132px;
+    }
+    html[data-layout="scene"] .topbar-controls #randomPlay { grid-column: 2; grid-row: 1; }
+    html[data-layout="scene"] .topbar-controls #stopAll { grid-column: 3; grid-row: 1; }
+    html[data-layout="scene"] .topbar-controls label { grid-column: 2 / 4; grid-row: 2; }
+    html[data-layout="scene"] .topbar-controls #changeCdn { grid-column: 2 / 4; }
+}
+
+#mainContent.sidebar-collapsed .app-header {
+    grid-template-columns: calc(var(--collapsed-sidebar-width, 100px) + var(--sidebar-shift)) minmax(0, 1fr);
+}
+
+@media (orientation: portrait) and (max-width: 1100px) {
+    :root { --collapsed-sidebar-width: 88px; }
+}
+@media (orientation: portrait) and (max-width: 820px) {
+    :root { --collapsed-sidebar-width: 90px; }
+}
+@media (orientation: portrait) and (max-width: 560px) {
+    :root { --collapsed-sidebar-width: 74px; }
+}
+
+/* Respond to available content width, including sidebar expansion, rather
+   than the physical window width. */
+#infoPage { container: info-page / inline-size; min-width: 0; }
+#currentStatusSection { container: status-section / inline-size; min-width: 0; }
+.ed-filters > *, .ed-date-field, .ed-filters input { min-width: 0; max-width: 100%; }
+.ed-filters label, .ed-date-control { flex: 1 1 160px; }
+.ed-filters input { width: 100%; }
+.prediction-row > strong { max-width: 100%; }
+.prediction-row > span { overflow-wrap: anywhere; }
+
+@media (orientation: landscape) {
+    .kitchen-frame { min-height: 0; }
+    .kitchen-scene {
+        aspect-ratio: 1671 / 941;
+        min-height: 0;
+    }
+}
+.kitchen-count--seasoning { right: 3%; top: 12%; min-width: 0; max-width: 35%; }
+
+@container info-page (max-width: 1000px) {
+    .info-overview, .prediction-layout { grid-template-columns: minmax(0, 1fr); }
+    .meme-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@container info-page (max-width: 500px) {
+    .meme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .info-section { padding: 16px 8px; }
+    .prediction-row { flex-wrap: wrap; }
+}
+@container status-section (max-width: 520px) {
+    .current-status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "followers guards" "status status" "streams last-started"
+            "last-seen last-seen" "uploads golden" "updated updated";
+        grid-template-rows: auto;
+    }
+}
+@container status-section (max-width: 280px) {
+    .current-status-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "followers" "guards" "status" "streams"
+            "last-started" "last-seen" "uploads" "golden" "updated";
+    }
+}
+
+/* Phone landscape and very short windows retain readable controls. The
+   page scrolls inside the content panel instead of shrinking to tiny text. */
+@media (orientation: landscape) {
+    html[data-layout="flow"] { --sidebar-width: 156px; --sidebar-shift: 0px; --sidebar-icon-inset: 8px; }
+    html[data-layout="flow"] body { background: var(--surface-cool); }
+    html[data-layout="flow"] body::before,
+    html[data-layout="flow"] body::after { content: none; }
+    html[data-layout="flow"] .app-frame {
+        inset: 8px;
+        width: calc(100% - 16px);
+        height: calc(100% - 16px);
+    }
+    html[data-layout="flow"] .app-header { min-height: 76px; }
+    html[data-layout="flow"] .topbar { padding: 4px 8px 8px; gap: 4px 12px; }
+    html[data-layout="flow"] .topbar-tabs { gap: 8px; }
+    html[data-layout="flow"] .topbar-tab { min-height: 54px; padding: 8px; font-size: 24px; flex-basis: 120px; }
+    html[data-layout="flow"] .topbar-controls,
+    html[data-layout="flow"] .topbar-info-controls { padding-bottom: 0; margin-right: 0; }
+    html[data-layout="flow"] .controls { gap: 6px; }
+    html[data-layout="flow"] .topbar-controls button,
+    html[data-layout="flow"] .controls button { padding: 6px 10px; font-size: 14px; min-height: 34px; }
+    html[data-layout="flow"] .topbar-controls label { font-size: 14px; }
+    html[data-layout="flow"] .sidebar-clock-time { font-size: 28px; }
+    html[data-layout="flow"] .sidebar-clock-date { font-size: 12px; }
+    html[data-layout="flow"] .sidebar { padding: 8px 4px; }
+    html[data-layout="flow"] .sidebar-item { padding-inline: 8px; font-size: 14px; }
+    html[data-layout="flow"] .sidebar-clock,
+    html[data-layout="flow"] .sidebar-item { color: var(--ui-ink); text-shadow: none; }
+    html[data-layout="flow"] .sidebar-clock-date { color: var(--ui-ink-soft); }
+    html[data-layout="flow"] .content { padding: 8px; }
+    html[data-layout="flow"] #voiceContainer { padding: 20px 8px 8px; }
+    html[data-layout="flow"] #infoPage { padding: 16px 8px; }
+    html[data-layout="flow"] .footer-content { grid-template-columns: minmax(0, 1fr); padding: 0; }
+    html[data-layout="flow"] .footer-text { overflow-wrap: anywhere; }
+    html[data-layout="flow"] .haruka-button,
+    html[data-layout="flow"] .tooltip { max-width: 100%; }
+    html[data-layout="flow"] .haruka-button button { min-width: min(120px, 100%); max-width: 100%; padding-inline: 12px; }
+    html[data-layout="flow"] .kitchen-scene { min-height: 0; }
+    html[data-layout="flow"] .kitchen-session { left: 12px; top: 12px; }
+    html[data-layout="flow"] .kitchen-session-time { transform: none; font-size: 16px; }
+    html[data-layout="flow"] .kitchen-session-nav button { padding: 5px 8px; font-size: 12px; }
+    html[data-layout="flow"] .kitchen-count { padding: 4px 6px; font-size: 12px; }
+    html[data-layout="flow"] .kitchen-count--seasoning { top: 12px; }
+    html[data-layout="flow"] .kitchen-fish-area { left: 2%; bottom: 25%; width: 28%; }
+    html[data-layout="flow"] .kitchen-count--coin { margin-top: 6px; }
+    html[data-layout="flow"] .kitchen-count--egg { top: -40px; left: 0; }
+    html[data-layout="flow"] .kitchen-count--tomato { bottom: -40px; left: 0; }
 }

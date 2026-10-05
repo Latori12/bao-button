@@ -98,7 +98,8 @@ function predictionChart(points, levels, width = 760, height = 320) {
     const showPopover = index => {
         popover.replaceChildren(predictionTooltipContent(points[index], values[index]));
         popover.hidden = false;
-        const chartWidth = chart.getBoundingClientRect().width;
+        // Coordinates belong to the unscaled layout, just like CSS left/top.
+        const chartWidth = chart.clientWidth;
         const pointX = chartWidth * x(index) / width;
         const pointY = chartWidth * y(values[index]) / width;
         const halfWidth = popover.offsetWidth / 2;

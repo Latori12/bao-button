@@ -7,11 +7,15 @@ import { safeExternalUrl } from './src/ui/externalLinks.js';
 import { getAudioFromCache, saveAudioToCache, cleanupOldCache,
     getSelectedCdn, saveSelectedCdn } from './src/audio/storage.js';
 import { preloadInBatches } from './src/audio/preload.js';
+import { trackAudioPlayback } from './src/audio/playback.js';
+import { renderNowPlaying } from './src/ui/nowPlaying.js';
 
 let audioBaseUrl = '';
 let currentPage = 'buttons';
 let eventsBound = false;
 let unbindScrollSpy = null;
+let playbackSequence = 0;
+let playbackEpoch = 0;
 
 // 全局状态
 const state = {
@@ -333,9 +337,10 @@ function scrollToSection(tag) {
     const section = document.getElementById(sectionId);
     if (!section) return;
 
+    const scale = scroller.getBoundingClientRect().height / scroller.offsetHeight || 1;
+
     const targetTop = scroller.scrollTop
-        + section.getBoundingClientRect().top
-        - scroller.getBoundingClientRect().top
+        + (section.getBoundingClientRect().top - scroller.getBoundingClientRect().top) / scale
         - 16;
 
     scroller.scrollTo({
@@ -350,20 +355,21 @@ function keepSidebarItemInView(item) {
 
     const navRect = nav.getBoundingClientRect();
     const itemRect = item.getBoundingClientRect();
+    const scale = navRect.height / nav.offsetHeight || 1;
 
-    const offset = 12; // 上下留白
+    const offset = 12 * scale; // 上下留白，换算为屏幕坐标。
 
     // item 在 nav 可视区上方
     if (itemRect.top < navRect.top + offset) {
         nav.scrollBy({
-            top: itemRect.top - navRect.top - offset,
+            top: (itemRect.top - navRect.top - offset) / scale,
             behavior: 'smooth'
         });
     }
     // item 在 nav 可视区下方
     else if (itemRect.bottom > navRect.bottom - offset) {
         nav.scrollBy({
-            top: itemRect.bottom - navRect.bottom + offset,
+            top: (itemRect.bottom - navRect.bottom + offset) / scale,
             behavior: 'smooth'
         });
     }
@@ -385,7 +391,9 @@ function bindScrollSpy() {
     if (!sections.length || !sidebarItems.length) return;
 
     const onScroll = () => {
-        const activationLine = scroller.getBoundingClientRect().top + 42;
+        const bounds = scroller.getBoundingClientRect();
+        const scale = bounds.height / scroller.offsetHeight || 1;
+        const activationLine = bounds.top + 42 * scale;
         let currentTag = sections[0].dataset.tag;
 
         for (let i = 0; i < sections.length; i++) {
@@ -557,6 +565,7 @@ function getLocalizedVoiceTitle(voice) {
 // 播放音频
 async function playVoice(voice) {
     const path = voice.path;
+    const epoch = playbackEpoch;
 
     // 从缓存获取Blob
     let blob = state.audioCache.get(path);
@@ -564,6 +573,7 @@ async function playVoice(voice) {
     if (!blob) {
         // 如果内存中没有，尝试从IndexedDB加载
         const cached = await getAudioFromCache(path);
+        if (epoch !== playbackEpoch) return;
         if (cached?.blob && cached.cdnUrl === audioBaseUrl) {
             blob = cached.blob;
             state.audioCache.set(path, blob);
@@ -589,7 +599,10 @@ async function playVoice(voice) {
 function playAudioElement(audio, voice, cleanupCallback) {
     const wrapper = document.querySelector(`.haruka-button[data-path="${voice.path}"]`);
     const btn = wrapper ? wrapper.querySelector('button') : null;
-    if (!btn) return;
+    if (!btn) {
+        cleanupCallback?.();
+        return;
+    }
 
     // 创建进度条
     const progressMask = document.createElement('span');
@@ -598,41 +611,38 @@ function playAudioElement(audio, voice, cleanupCallback) {
     btn.classList.add('is-playing');
 
     // 生成唯一标识符
-    const audioId = `${voice.path}-${Date.now()}`;
+    const audioId = `playback-${++playbackSequence}`;
 
     // 存储音频实例
     state.playingAudios.set(audioId, {
         audio: audio,
         path: voice.path,
+        title: getLocalizedVoiceTitle(voice),
+        category: getLocalizedTag(voice.tag),
+        repeats: 0,
+        playing: false,
         progressMask: progressMask,
         cleanup: cleanupCallback
     });
 
     // 播放音频
-    audio.play().then(() => {
-        // 设置进度条动画
-        const duration = audio.duration || 3;
-        progressMask.style.transition = `width ${duration}s linear`;
-        progressMask.style.width = '100%';
-
-        // 音频结束时处理
-        audio.onended = () => {
-            cleanupAudio(audioId);
-
-            // 如果开启循环模式，重新播放当前音频
-            if (state.isLoopMode) {
-                playVoice(voice);
-            }
-        };
-
-        // 错误处理
-        audio.onerror = () => {
-            console.error(`音频播放错误: ${voice.path}`);
-            cleanupAudio(audioId);
-        };
-    }).catch(error => {
-        console.error('播放失败:', error);
-        cleanupAudio(audioId);
+    const item = state.playingAudios.get(audioId);
+    item.playback = trackAudioPlayback(audio, {
+        shouldLoop: () => state.isLoopMode,
+        onPlaying: repeats => {
+            item.playing = true;
+            item.repeats = repeats;
+            renderNowPlaying(state.playingAudios);
+            // 每轮播放重新开始按钮进度条。
+            const duration = audio.duration || 3;
+            progressMask.style.transition = 'none';
+            progressMask.style.width = '0%';
+            void progressMask.offsetWidth;
+            progressMask.style.transition = `width ${duration}s linear`;
+            progressMask.style.width = '100%';
+        },
+        onFinished: () => cleanupAudio(audioId),
+        onError: error => console.error(`音频播放失败: ${voice.path}`, error),
     });
 }
 
@@ -640,25 +650,21 @@ function playAudioElement(audio, voice, cleanupCallback) {
 function cleanupAudio(audioId) {
     const item = state.playingAudios.get(audioId);
     if (item) {
+        state.playingAudios.delete(audioId);
+        item.playback?.stop();
         if (item.cleanup) item.cleanup();
         const btn = item.progressMask.parentElement;
         item.progressMask.remove();
         if (btn && !btn.querySelector('.process-mask')) btn.classList.remove('is-playing');
-        state.playingAudios.delete(audioId);
+        renderNowPlaying(state.playingAudios);
     }
 }
 
 // 停止所有音频
 function stopAllVoices() {
-    state.playingAudios.forEach(item => {
-        item.audio.pause();
-        if (item.cleanup) item.cleanup();
-        const btn = item.progressMask.parentElement;
-        item.progressMask.remove();
-        if (btn) btn.classList.remove('is-playing');
-    });
-
-    state.playingAudios.clear();
+    playbackEpoch++;
+    for (const audioId of state.playingAudios.keys()) cleanupAudio(audioId);
+    renderNowPlaying(state.playingAudios);
 }
 
 // 随机播放
