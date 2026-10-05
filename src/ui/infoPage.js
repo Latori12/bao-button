@@ -66,7 +66,9 @@ function refreshVisibleSections() {
     }
 
     const scrollTop = document.getElementById('contentScroll')?.getBoundingClientRect().top ?? 0;
-    const activationLine = scrollTop + 140;
+    const frame = document.querySelector('.app-frame');
+    const scale = frame?.offsetWidth ? frame.getBoundingClientRect().width / frame.offsetWidth : 1;
+    const activationLine = scrollTop + 140 * scale;
     let current = sections[0].id;
     for (const section of sections) {
         const element = document.getElementById(section.id);
