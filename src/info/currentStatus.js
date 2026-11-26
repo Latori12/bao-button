@@ -3,11 +3,18 @@ import { infoApiUrl, fetchJson, showUpdateError } from './api.js';
 const CURRENT_URL = infoApiUrl('/api/current');
 const STATUS_IMAGES = new URL('../../public/current-status/', import.meta.url);
 const THREE_DAYS_MS = 3 * 24 * 60 * 60_000;
+const FIVE_DAYS_MS = 5 * 24 * 60 * 60_000;/*261126添加*/
 
 const MOODS = {
     live: { image: '哇塞.png', label: '哇塞' },
     recent: { image: '低落.png', label: '低落', note: '想王姐了…' },
     overdue: { image: '委屈.png', label: '委屈', note: '王姐不要垫饭煲了；；' },
+    /*261126*/
+    overdueMoreThanFiveDays: {
+        image: '呆滞.png',
+        label: '呆滞',
+        note: '王宝煲......是谁？'
+        },
 };
 
 function formatTimeAgo(value) {
@@ -55,9 +62,17 @@ function createLastSeenItem(liveStatus, lastSeenAt) {
     const item = createStatusItem('last-seen', '距离上次出现',
         liveStatus === 'live' ? '正在直播' : formatTimeAgo(lastSeenAt));
     const seenTime = lastSeenAt ? Date.parse(lastSeenAt) : NaN;
-    const mood = liveStatus === 'live' ? MOODS.live
+    /*261126修改*/
+    const elapsed = Date.now() - seenTime;
+
+const mood = liveStatus === 'live' ? MOODS.live
+    : !Number.isFinite(seenTime) ? null
+        : elapsed <= THREE_DAYS_MS ? MOODS.recent
+            : elapsed <= FIVE_DAYS_MS ? MOODS.overdue
+                : MOODS.overdueMoreThanFiveDays;
+    /*原代码const mood = liveStatus === 'live' ? MOODS.live
         : !Number.isFinite(seenTime) ? null
-            : Date.now() - seenTime <= THREE_DAYS_MS ? MOODS.recent : MOODS.overdue;
+            : Date.now() - seenTime <= THREE_DAYS_MS ? MOODS.recent : MOODS.overdue;*/
     if (!mood) return item;
 
     if (mood.note) {
